@@ -1,0 +1,624 @@
+:root {
+    /* ---------- Base Colors ---------- */
+    --white: #FFFFFF;
+    --black: #000000;
+
+    /* ---------- Primary UI Colors ---------- */
+    --marine-blue: #00A9F3;        /* Main accent color (hover, active links) */
+    --nav-dark: #27343F;           /* Navbar dark background */
+    --nav-dark-light: #0000001F;   /* 12% opacity black overlay */
+    --deep-navy: #222B56;          /* Headings like CHARTER title */
+
+    /* ---------- Text Colors ---------- */
+    --text-dark: #000000CC;        /* 80% black — best for main text */
+    --text-gray: #707070;          /* For descriptions, body text */
+
+    /* ---------- Background Colors ---------- */
+    --bg-light: #F5F5F5;           /* Grey box background */
+}
+
+
+* {
+    box-sizing: border-box;
+}
+html, body {
+    overflow-x: hidden !important;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: "Futura PT", system-ui, sans-serif;
+}
+
+.hero-wrapper {
+    position: relative;
+    width: 100%;
+   
+    background: url("images/Group 7.png") center center / contain no-repeat;
+    background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+
+/* ===== NAVBAR ===== */
+.custom-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--nav-height);
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background: var(--nav-bg);
+    z-index: 10;
+}
+
+/* Move navlinks slightly right */
+.navbar-nav {
+    margin-left: 80px !important;   /* <<< RIGHT SHIFT */
+    gap: 32px;
+}
+
+.navbar-brand {
+    padding-left: 120px;
+}
+
+.navbar-brand img {
+    width: 198px;
+    height: auto;
+}
+
+.navbar-nav .nav-link {
+    position: relative;
+    padding: 0;
+    font-size: 20px;
+    line-height: 70px;
+    text-transform: uppercase;
+    color: #ffffff;
+    transition: 0.25s ease;
+}
+
+/* Top blue bar on ACTIVE */
+.navbar-nav .nav-link.active::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -35px;
+    width: 137px;
+    height: 8px;
+    background: var(--marine-blue);
+}
+
+/* ===== HOVER EFFECTS ===== */
+.navbar-nav .nav-link:hover {
+    color: var(--marine-blue);
+}
+
+.navbar-nav .nav-link:hover::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -35px;
+    width: 137px;
+    height: 8px;
+    background: var(--marine-blue);
+    opacity: 1;
+}
+
+/* ===== HERO BUTTONS ===== */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 80px;
+    padding-top: var(--nav-height);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.hero-cta {
+    min-width: 220px;
+    height: 64px;
+    border: 2px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-transform: uppercase;
+    transition: 0.25s ease;
+}
+
+.hero-cta:hover {
+    background: rgba(0, 169, 243, 0.25);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 991.98px) {
+    .navbar-nav {
+        margin-left: 0 !important;
+        gap: 0;
+    }
+
+    .navbar-nav .nav-link.active::before,
+    .navbar-nav .nav-link:hover::before {
+        display: none;
+    }
+
+    .hero-cta {
+        min-width: 70%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-cta {
+        min-width: 85%;
+    }
+}
+
+
+
+/* ===== CHARTER SECTION WRAPPER ===== */
+.charter-section {
+    width: 100%;
+    padding-top: 120px;         /* give spacing like original layout */
+    padding-bottom: 120px;
+    display: flex;
+    justify-content: center;
+}
+
+/* ===== FLEX CONTAINER ===== */
+.charter-container {
+    width: 100%;
+    max-width: 1920px;          /* same as design width */
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+    padding-left: 119px;        /* EXACT from Figma */
+    padding-right: 119px;
+}
+
+/* ===== LEFT BOX ===== */
+.charter-box {
+    width: 943px;               /* EXACT */
+    height: 580px;              /* EXACT */
+    background: #F5F5F5;
+    padding: 56px;              /* calculated from your Figma left gap */
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== TITLE ===== */
+.charter-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    color: #162C56;             /* dark navy like screenshot */
+    margin-bottom: 40px;
+}
+
+/* ===== PARAGRAPH ===== */
+.charter-text {
+    width: 655px;               /* EXACT from Figma */
+    font-family: "Poppins", sans-serif;
+    font-size: 25px;            /* EXACT */
+    line-height: 63px;          /* EXACT */
+    color: #707070;             /* EXACT */
+}
+
+/* ===== RIGHT IMAGE ===== */
+.charter-image {
+    overflow: visible; /* allow image to shift outside its container */
+}
+.charter-image img {
+    width: 912px;               /* EXACT */
+    height: 650px;              /* EXACT */
+    object-fit: cover;
+    display: block;
+    position: relative;
+    left: -70px; /* move image left; adjust value as needed */
+    top: 84px; /* move image down — increase this value to push further toward the bottom */
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1200px) {
+    .charter-container {
+        flex-direction: column;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .charter-box,
+    .charter-text {
+        width: 100%;
+        height: auto;
+    }
+
+    .charter-image img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+/* ================================
+   FEATURED LISTINGS SECTION
+================================= */
+
+.featured-section {
+    width: 100%;
+    padding-top: 140px; 
+    padding-bottom: 140px;
+    display: flex;
+    justify-content: center;
+}
+
+.featured-container {
+    width: 100%;
+    max-width: 1920px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ===== TITLE ===== */
+.featured-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--deep-navy);  /* #222B56 */
+    margin-bottom: 20px;
+    letter-spacing: 0px;
+}
+
+/* ===== SUBTEXT ===== */
+.featured-subtext {
+    font-family: "Poppins", sans-serif;
+    font-size: 25px;
+    line-height: 63px;
+    color: var(--text-gray);   /* #707070 */
+    text-align: center;
+    max-width: 580px;
+    margin-bottom: 60px;
+}
+
+/* ===== SEARCH BOX ===== */
+.featured-search {
+    width: 714px;               /* EXACT from Figma */
+    height: 87px;               /* EXACT from Figma */
+    border: 6px solid var(--deep-navy); /* #222B56 exact */
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+    gap: 15px;
+}
+
+.featured-search input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-family: "Poppins", sans-serif;
+    font-size: 22px;
+    color: var(--text-gray);
+}
+
+.featured-search input::placeholder {
+    color: #C5C5C5;
+}
+
+.search-icon {
+    font-size: 35px;          /* adjust to match Figma */
+    color: var(--deep-navy);  /* #222B56 */
+    display: flex;
+    align-items: center;
+}
+
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+    .featured-search {
+        width: 85%;
+        height: 75px;
+    }
+}
+
+@media (max-width: 600px) {
+    .featured-title {
+        font-size: 32px;
+        text-align: center;
+    }
+
+    .featured-subtext {
+        font-size: 20px;
+        line-height: 40px;
+    }
+}
+
+
+
+/* SECTION WRAPPER */
+.yacht-section {
+    width: 100%;
+    padding: 80px 0 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+}
+
+/* GRID */
+.yacht-grid {
+    width: 100%;
+    max-width: 1500px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px 50px; /* row gap 60px, column gap 50px */
+}
+
+.yacht-card {
+    background: #ffffff;
+    border: 1px solid #E6E6E6;   /* border stays */
+    box-shadow: 0px 3px 12px rgba(0,0,0,0.20);
+    overflow: hidden;     
+    padding: 0;       /* required so zoom stays inside border */
+}
+
+.yacht-card img {
+    width: 100%;                 /* touches left + right border */
+    height: 275px;               /* same height as screenshot */
+    object-fit: cover;           /* ensures perfect crop */
+    display: block;              /* removes default inline gap */
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #E6E6E6; /* looks EXACT like your screenshot */
+    transition: transform 0.4s ease;
+}
+
+.yacht-card:hover img {
+    transform: scale(1.03);      /* zoom but stays inside border */
+}
+
+/* TEXT AREA */
+.yacht-card .info {
+    text-align: center;
+    padding: 20px 10px 25px;
+}
+
+/* TITLE */
+.yacht-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #222B56;
+    margin-bottom: 8px;
+}
+
+/* SPECS TEXT */
+.yacht-card p {
+    font-size: 14px;
+    color: #707070;
+}
+
+/* BUTTON SECTION */
+.btn-wrap {
+    margin-top: 80px;
+}
+
+.cta-btn {
+    width: 266px;
+    height: 90px;
+    border: 6px solid #222B56;
+    background: transparent;
+    color: #222B56;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* HOVER */
+.cta-btn:hover {
+    border-color: #ffffff;
+    color: #222B56;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1300px) {
+    .yacht-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 850px) {
+    .yacht-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .cta-btn {
+        width: 80%;
+    }
+}
+
+
+/* ========================================= 
+    PURCHASE SECTION (Exact Layout) - ORIGINAL
+========================================= */
+
+.purchase-section {
+     width: 100%;
+     padding: 120px 0;
+     display: flex;
+     justify-content: center;
+     font-family: "Poppins", sans-serif;
+}
+
+.purchase-wrapper {
+     width: 100%;
+     max-width: 1600px;
+     display: flex;
+     align-items: stretch;
+     justify-content: center;
+     gap: 0; /* required to look exactly like screenshot */
+     position: relative;
+     /* use flexible columns for better responsiveness */
+     flex-wrap: nowrap;
+}
+
+/* LAYOUT: Left image / Right box */
+.purchase-image {
+     flex: 0 0 48%;
+     display: flex;
+     align-items: flex-start;
+     justify-content: flex-start;
+     position: relative;
+     overflow: visible;
+}
+
+.purchase-image img {
+     width: 820px;                  /* visually identical width on large screens */
+     max-width: 100%;
+     height: 580px;                 /* matches screenshot crop */
+     max-height: 80vh;
+     object-fit: cover;
+     object-position: center;
+     display: block;
+     position: relative;
+     left: 50px;                    /* move right on large screens */
+     top: 160px;                    /* move down on large screens */
+     transition: all 0.25s ease;
+}
+
+/* RIGHT GREY BOX */
+.purchase-box {
+     background: #F5F5F5;
+     flex: 0 0 52%;
+     width: 750px;
+     padding: 110px 130px;
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-start;
+     box-sizing: border-box;
+}
+
+/* TITLE */
+.purchase-box h2 {
+     font-size: clamp(28px, 3.2vw, 50px); /* scalable between mobile and desktop */
+     font-weight: 700;
+     text-transform: uppercase;
+     color: #222B56;
+     margin-bottom: 40px;
+}
+
+/* PARAGRAPH */
+.purchase-box p {
+     font-size: clamp(16px, 1.6vw, 25px);
+     line-height: clamp(24px, 3.5vw, 63px);
+     color: #707070;
+     max-width: 655px;
+}
+
+/* ======================================================================
+   RESPONSIVE FIXES (NO CODE CHANGED — ONLY RESPONSIVE ADJUSTMENTS)
+====================================================================== */
+
+/* Large laptops / slightly smaller desktops */
+@media (max-width: 1400px) {
+    .purchase-image img {
+        width: 100% !important;
+        height: auto !important;
+        left: 0 !important;
+        top: 100px !important;
+    }
+
+    .purchase-box {
+        padding: 90px 80px !important;
+    }
+}
+
+/* Tablets & small laptops */
+@media (max-width: 1100px) {
+     .purchase-wrapper {
+          flex-direction: column !important;
+          align-items: stretch !important;
+     }
+
+     .purchase-image {
+          order: 1;
+          width: 100%;
+          flex: 0 0 auto;
+     }
+     .purchase-image img {
+          width: 100% !important;
+          height: auto !important;
+          left: 0 !important;
+          top: 0 !important;
+          max-height: none !important;
+     }
+
+     .purchase-box {
+          order: 2;
+          width: 100% !important;
+          flex: 0 0 auto;
+          padding: 60px 40px !important;
+     }
+
+     .purchase-box h2 {
+          font-size: 38px !important;
+     }
+
+     .purchase-box p {
+          font-size: 20px !important;
+          line-height: 38px !important;
+     }
+}
+
+/* Mobile screens */
+@media (max-width: 600px) {
+
+     .purchase-section {
+          padding: 60px 0 !important;
+     }
+
+     .purchase-box {
+          padding: 36px 20px !important;
+     }
+
+     .purchase-box h2 {
+          font-size: 28px !important;
+          margin-bottom: 20px !important;
+     }
+
+     .purchase-box p {
+          font-size: 16px !important;
+          line-height: 24px !important;
+          max-width: 100% !important;
+     }
+
+     .purchase-image img {
+          width: 100% !important;
+          height: auto !important;
+          left: 0 !important;
+          top: 0 !important;
+     }
+}
+
+/* Safety: prevent oversized offsets */
+@media (max-width: 1600px) {
+     .purchase-image img {
+          left: clamp(0px, 3vw, 50px);
+          top: clamp(0px, 8vw, 160px);
+     }
+}
