@@ -18,7 +18,7 @@
 }
 
 
-* {
+     * {
     box-sizing: border-box;
 }
 html, body {
@@ -37,14 +37,14 @@ body {
     position: relative;
     width: 100%;
    
-    background: url("images/Group 7.png") center center / contain no-repeat;
+    background: url("images/boat.png") center center / contain no-repeat;
     background-position: center;
   background-size: cover;
   position: relative;
 }
 
 
-/* ===== NAVBAR ===== */
+/* ===== NAVBAR WITH BLUR EFFECT ===== */
 .custom-nav {
     position: absolute;
     top: 0;
@@ -53,18 +53,24 @@ body {
     height: var(--nav-height);
     padding-top: 30px;
     padding-bottom: 30px;
-    background: var(--nav-bg);
+
+    /* Glass Blur Effect */
+    background: rgba(0, 0, 0, 0.25);      /* transparent black */
+    backdrop-filter: blur(10px);          /* BLUR HERE */
+    -webkit-backdrop-filter: blur(10px);  /* Safari support */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.295);
+
     z-index: 10;
 }
 
-/* Move navlinks slightly right */
 .navbar-nav {
-    margin-left: 80px !important;   /* <<< RIGHT SHIFT */
+    margin-left: 130px !important;  
     gap: 32px;
 }
 
+
 .navbar-brand {
-    padding-left: 120px;
+    padding-left: 154px;  
 }
 
 .navbar-brand img {
@@ -621,4 +627,114 @@ body {
           left: clamp(0px, 3vw, 50px);
           top: clamp(0px, 8vw, 160px);
      }
+}
+
+
+/* ===== BACKGROUND IMAGE SECTION ===== */
+.about-section {
+    width: 100%;
+    height: 949px;    /* exact height from design */
+    background: url("images/noaa-xkWjpiLT0hU-unsplash.png") center center/cover no-repeat;
+    position: relative;
+}
+
+/* ===== WHITE BOX ===== */
+.about-box {
+    width: 1109px;
+    background: #ffffff;
+    padding: 80px 60px;
+    position: absolute;
+    left: 50%;
+
+    /* move much lower */
+    top: 68%;                /* ← YAHAN SE CONTROL HOTI HAI HEIGHT */
+    transform: translateX(-50%);
+
+}
+
+/* ===== TITLE ===== */
+.about-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #222B56;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* ===== PARAGRAPH ===== */
+.about-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    line-height: 63px; /* exact from Figma */
+    color: #707070;
+    text-align: center;
+    max-width: 950px;
+    margin: 0 auto 55px auto;
+}
+
+/* ===== READ MORE BUTTON ===== */
+.about-btn {
+    display: block;
+    width: 188px;
+    height: 56px;
+    border: 3px solid #222B56;
+    text-align: center;
+    line-height: 50px;
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #222B56;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+/* Hover */
+.about-btn:hover {
+    background: #222B56;
+    color: #ffffff;
+}
+
+
+/* ===========================
+   EMPTY BLANK SECTION
+   =========================== */
+.empty-section {
+    width: 100%;
+    height: 500px;       /* ✔ tum jitna chaaho badha sakte ho */
+    background: #ffffff; /* blank white area */
+}
+
+
+/* ===========================
+   FOOTER (Screenshot Style)
+   =========================== */
+.site-footer {
+    width: 100%;
+    background: #FFFFFF;
+    padding: 40px 0;
+    margin-top: 0;
+    position: relative;
+}
+
+/* Top border line */
+.site-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(112, 112, 112, 0.54);
+}
+
+/* Footer text */
+.footer-inner {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    color: #707070;
+    font-size: 16px;
+    letter-spacing: 0.3px;
 }
