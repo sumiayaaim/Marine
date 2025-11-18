@@ -521,7 +521,7 @@ body {
 
 /* TITLE */
 .purchase-box h2 {
-     font-size: clamp(28px, 3.2vw, 50px); /* scalable between mobile and desktop */
+     font-size: clamp(28px, 3.2vw, 50px);
      font-weight: 700;
      text-transform: uppercase;
      color: #222B56;
@@ -536,9 +536,6 @@ body {
      max-width: 655px;
 }
 
-/* ======================================================================
-   RESPONSIVE FIXES (NO CODE CHANGED — ONLY RESPONSIVE ADJUSTMENTS)
-====================================================================== */
 
 /* Large laptops / slightly smaller desktops */
 @media (max-width: 1400px) {
@@ -621,7 +618,7 @@ body {
      }
 }
 
-/* Safety: prevent oversized offsets */
+
 @media (max-width: 1600px) {
      .purchase-image img {
           left: clamp(0px, 3vw, 50px);
@@ -633,7 +630,7 @@ body {
 /* ===== BACKGROUND IMAGE SECTION ===== */
 .about-section {
     width: 100%;
-    height: 949px;    /* exact height from design */
+    height: 949px;    
     background: url("images/noaa-xkWjpiLT0hU-unsplash.png") center center/cover no-repeat;
     position: relative;
 }
@@ -647,7 +644,7 @@ body {
     left: 50%;
 
     /* move much lower */
-    top: 68%;                /* ← YAHAN SE CONTROL HOTI HAI HEIGHT */
+    top: 68%;               
     transform: translateX(-50%);
 
 }
@@ -703,8 +700,8 @@ body {
    =========================== */
 .empty-section {
     width: 100%;
-    height: 500px;       /* ✔ tum jitna chaaho badha sakte ho */
-    background: #ffffff; /* blank white area */
+    height: 500px;      
+    background: #ffffff; 
 }
 
 
